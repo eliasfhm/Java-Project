@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="Etudiant-mm_authorReco/src"/>
+	<classpathentry kind="src" path="Etudiant-mm_langModel/src"/>
+	<classpathentry kind="src" path="Etudiant-mm_langModel/test"/>
+	<classpathentry kind="lib" path="Etudiant-mm_authorReco/lib/hamcrest-all-1.3.jar"/>
+	<classpathentry kind="lib" path="Etudiant-mm_authorReco/lib/junit-4.12-beta-2.jar"/>
+	<classpathentry kind="lib" path="Etudiant-mm_authorReco/lib/ml_2017.jar"/>
+	<classpathentry kind="lib" path="Etudiant-mm_langModel/lib/hamcrest-all-1.3.jar"/>
+	<classpathentry kind="lib" path="Etudiant-mm_langModel/lib/junit-4.12-beta-2.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="Etudiant-mm_authorReco/bin"/>
+</classpath>
