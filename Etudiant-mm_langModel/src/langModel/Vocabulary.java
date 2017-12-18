@@ -56,37 +56,44 @@ public class Vocabulary implements VocabularyInterface {
 		
 	}
 
-	@Override
+
 	public void scanNgramSet(Set<String> ngramSet) {
-		Iterator<String> it = ngramSet.iterator();
-		while(it.hasNext()){
-			this.addWord(it.next());
-		}
-	}
-
-	@Override
-	public void readVocabularyFile(String filePath) {
-		try {
-			Scanner sc = new Scanner(new File(filePath));
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
-
-	@Override
-	public void writeVocabularyFile(String filePath) {
-		File file = new File(filePath);
-		Iterator<String> it = this.vocabulary.iterator();
-		try{
-			FileWriter fw = new FileWriter(file.getAbsoluteFile());
-			while(it.hasNext()){
-				fw.write(it.next());
-				fw.write("\n");
+		for(String ngram : ngramSet){
+			for(String mot : ngram.split(" ")){
+				if(!this.contains(mot)){
+					this.addWord(mot);
+				}
 			}
-		}catch (IOException e) {
+		}
+	}
+
+
+	public void readVocabularyFile(String filePath) {
+		File file  = new File(filePath);
+		Scanner sc;
+		try {
+			sc = new Scanner(file);
+			while (sc.hasNextLine()) {
+				String mot = sc.nextLine();
+				this.addWord(mot);
+			}			
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+	}
+
+
+	public void writeVocabularyFile(String filePath) {		
+		PrintWriter pW;
+		try {
+			pW = new PrintWriter(filePath, "UTF-8");
+			for(String  mot : getWords()){
+				pW.println(mot);
+			}
+			pW.close();
+		} catch (Exception e){
+			e.printStackTrace();
+		}
 	}
 
 }

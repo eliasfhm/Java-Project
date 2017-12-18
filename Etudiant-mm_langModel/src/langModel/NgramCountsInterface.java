@@ -119,5 +119,5 @@ public interface NgramCountsInterface {
 	public void readNgramCountsFile (String filePath);
 
 
-	void scanTextString(String text, int maximalOrder);
+	
 }

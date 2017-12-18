@@ -17,7 +17,9 @@ public class App {
 		v.addWord("xo");
 		v.addWord("no");
 		n.scanTextFile("./lm/small_corpus/ngramCounts_bigram_vocabulary1.txt", v, 3);
-		
+		System.out.println("------------get OOV--------------");
+		System.out.println(u.getOOV("yoyo", v));
+		System.out.println("--------------------------");
 		System.out.println(u.getHistory("<s> lionel veut boire une </s>", 3));
 		System.out.println("--------------------------");
 		System.out.println(v.contains("xo"));

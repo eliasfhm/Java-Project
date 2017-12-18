@@ -55,7 +55,7 @@ public class NgramCounts implements NgramCountsInterface {
 	
 	@Override
 	public int getMaximalOrder() {
-		return order;
+		return this.order;
 	}
 
 	
@@ -105,7 +105,7 @@ public class NgramCounts implements NgramCountsInterface {
 	
 
 	@Override
-	/*public void scanTextFile(String filePath, VocabularyInterface vocab, int maximalOrder) {
+	public void scanTextFile(String filePath, VocabularyInterface vocab, int maximalOrder) {
 		 Scanner scf = null;
          try
          {
@@ -131,27 +131,8 @@ public class NgramCounts implements NgramCountsInterface {
          {
                  e.printStackTrace();
          }
-	}*/
+	}
 
-	public void scanTextString(String text, int maximalOrder) {
-		for(String ngram : NgramUtils.generateNgrams(text, 1, maximalOrder)){
-			incCounts(ngram.toLowerCase());
-		}
-	}
-	public void scanTextFile(String filePath, int maximalOrder) {
-		String txt="";
-		Scanner sc;
-		try{
-			sc = new Scanner(new File(filePath));
-			while(sc.hasNextLine()){
-				this.scanTextString(sc.nextLine(), maximalOrder);
-			}
-			 this.setMaximalOrder(maximalOrder);
-		}
-		catch(FileNotFoundException e){
-			e.printStackTrace();
-		}		
-	}
 	
 	@Override
 	public void writeNgramCountFile(String filePath) {
@@ -198,12 +179,9 @@ public class NgramCounts implements NgramCountsInterface {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-}
-
-
-	@Override
-	public void scanTextFile(String filePath, VocabularyInterface vocab, int maximalOrder) {
-		// TODO Auto-generated method stub
-		
 	}
+
+
+
+
 }

@@ -85,8 +85,8 @@ public class NgramUtils {
 	 * @param order the maximal order for the n-grams to create from the sentence.
 	 * @return the list of n-grams constructed from the sentence.
 	 */
-<<<<<<< HEAD
-	
+
+/*	
 	public static List<String> decomposeIntoNgrams (String sentence, int order){
 		String histo = "";
 		List<String> liste = new ArrayList<String>();
@@ -101,8 +101,8 @@ public class NgramUtils {
 			liste.add(historique);
 		} return liste;
 	}
-=======
-	public static List<String> decomposeIntoNgrams (String sentence, int order) {
+*/
+public static List<String> decomposeIntoNgrams (String sentence, int order) {
          String [] seq = sentence.split(" ");
          String res = "";
          List<String> lres = new ArrayList<String>();
@@ -132,7 +132,7 @@ public class NgramUtils {
 	
 	        return lres;
         }
->>>>>>> 16cf8bf3a824d0cf458254142b03357aa851541a
+
 	
 	
 	/**
@@ -201,7 +201,7 @@ public class NgramUtils {
             		res += " ";
             	}
             	res += phrase[i];
-
+            	phrase[i].toString();
                 if(!vocab.contains(phrase[i]))
                 {
                     phrase[i] = vocab.OOV_TAG;

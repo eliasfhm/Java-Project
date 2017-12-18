@@ -13,28 +13,26 @@ public class VocabularyTest {
 	@Before
 	public void init(){
 		nGC = new NgramCounts();
-		nGC.readNgramCountsFile("lm/trigram-sample-train-fr.lm");
+		nGC.readNgramCountsFile("lm/small_corpus/ngramCounts_bigram_vocabulary1.txt");
 		vocabulaire = new Vocabulary();
 	}	
 	@Test
 	public void testScanNgramSet() {
 		vocabulaire.scanNgramSet(nGC.getNgrams());
 		assertEquals(12, vocabulaire.getSize());
-		assertTrue(vocabulaire.contains("pousse"));
-		assertTrue(vocabulaire.contains("PoUsSe"));
-		assertFalse(vocabulaire.contains("carotte"));
+		assertTrue(vocabulaire.contains("chanson"));
+		assertFalse(vocabulaire.contains("patate"));
 	}
 	@Test
 	public void testReadVocabularyFile() {
-		vocabulaire.readVocabularyFile("vocabulaireTest/sample-train-fr.vocab");
+		vocabulaire.readVocabularyFile("lm/small_corpus/vocabulary1_in.txt");
 		assertEquals(12, vocabulaire.getSize());
-		assertTrue(vocabulaire.contains("pousse"));
-		assertTrue(vocabulaire.contains("PoUsSe"));
-		assertFalse(vocabulaire.contains("carotte"));
+		assertTrue(vocabulaire.contains("chanson"));
+		assertFalse(vocabulaire.contains("patate"));
 	}
 	@Test
 	public void testWriteVocabularyFile() {
 		vocabulaire.scanNgramSet(nGC.getNgrams());
-		vocabulaire.writeVocabularyFile("vocabulaireTest/sample-train-fr.vocab");
+		vocabulaire.writeVocabularyFile("lm/small_corpus/vocabulary1_in.txt");
 	}
 }
